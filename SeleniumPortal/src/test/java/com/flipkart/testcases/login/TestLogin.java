@@ -10,7 +10,7 @@ public class TestLogin extends Init {
 
 	@Test
 	public void login() {
-		objLogin.login("joyack@gmail.com", "Flipkart94212@");
+		objLogin.login("usernarm", "password@");
 		objScreenShot.takeScreenShot("loginSuccess");
 		log.info("logged in!!!");
 		System.out.println("");
