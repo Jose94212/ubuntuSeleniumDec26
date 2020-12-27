@@ -19,12 +19,15 @@ public class InitiateDriverBrowser {
 		try {
 			if (browser.toLowerCase().contains("chrome")) {
 				String OS = System.getProperty("os.name");
+				log.info("OS=" + OS);
 				if (OS.equalsIgnoreCase("linux")) {
 					System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver");
 					driver = new ChromeDriver();
-				} else {
+				} else if (OS.toLowerCase().contains("windows")) {
 					System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver.exe");
 					driver = new ChromeDriver();
+				} else {
+					log.info("no OS!!!");
 				}
 				log.info("initialized driver and browser:" + browser);
 				driver.get(url);
